@@ -1,0 +1,26 @@
+.buttonContainer {
+  background-color: #ff3b3f;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.3rem;
+  border-radius: 25px;
+  cursor: pointer;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: #e53236;
+  }
+  p {
+    color: #fff;
+    font-weight: 800;
+    margin: 0;
+    font-size: 1.3rem;
+    flex: 1; /* Allow text to take up available space */
+    text-align: center;
+  }
+
+  img { 
+    width: 16px !important;
+    height: 16px;
+  }
+}

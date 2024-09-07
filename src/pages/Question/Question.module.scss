@@ -1,0 +1,48 @@
+
+.questionContainer {
+  width: 430px;
+  height: 85vh;
+  border: 1px solid white;
+  background-color: #fff;
+  background: url("/public/purple-bg.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  img {
+    width: 430px;
+  }
+
+  .questionsList {
+    border-radius: 25px 25px 0px 0px;
+    height: 80%;
+    background-color: #fff;
+    position: relative;
+  }
+
+  .questionBody{
+    padding: 0rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: -1.5rem;
+
+    .question{
+        margin: 0;
+        font-family: "Nunito", sans-serif;
+        font-weight: 900;
+        font-size: 1.3rem;
+        line-height: 32px;
+    }
+
+    .allOptions{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-height: 40vh;
+      overflow-y: scroll;
+    }
+  }
+
+}

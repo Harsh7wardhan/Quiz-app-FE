@@ -1,0 +1,47 @@
+/* CircularProgressBar.css */
+.progressContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 35%;
+  top: -6%;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 0.4rem;
+}
+
+.progressCircle {
+  transform: rotate(-90deg);
+}
+
+.circleBackground {
+  fill: none;
+  stroke: #e6e6e6;
+}
+
+.circleProgress {
+  fill: none;
+  stroke: #4caf50;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.progressText {
+  position: absolute;
+}
+.countText {
+  font-family: "Nunito", sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  font-style: italic;
+}
+.questionText {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #758694;
+  font-style: italic;
+}

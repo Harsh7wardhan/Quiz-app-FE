@@ -1,0 +1,62 @@
+$button-color: #ff3b3c;
+
+.homeContainer {
+  padding: 1rem 1rem 2rem 1rem;
+  width: 430px;
+  height: 85vh;
+  border: 1px solid white;
+  border-radius: 25px;
+  background-color: #fff;
+  background: url("/public/home-bg.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.businessLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 160px;
+    height: 40px;
+  }
+}
+
+.quizButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial box shadow */
+
+    p {
+      color: #ff3b3c;
+      font-weight: 800;
+      font-size: 3rem;
+      line-height: 90px;
+      text-align: center;
+    }
+
+    &:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+      transform: scale(
+        1.05
+      ); /* Slightly scale up on hover for a button-like effect */
+    }
+  }
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
