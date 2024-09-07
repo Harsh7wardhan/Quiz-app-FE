@@ -7,7 +7,7 @@ const CircularProgressBar = ({ activeQuestion, totalQuestions, percentage }) => 
     useEffect(() => {
         let timer;
         if (progress < percentage) {
-            timer = setTimeout(() => setProgress(progress + 1), 20); // Animation speed
+            timer = setTimeout(() => setProgress(progress + 1), 20); 
         }
         return () => clearTimeout(timer);
     }, [progress, percentage]);

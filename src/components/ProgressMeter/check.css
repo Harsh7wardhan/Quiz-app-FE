@@ -1,0 +1,39 @@
+/* Container to center the circular progress bar */
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+  }
+  
+  /* Outer circle */
+  .outer-circle {
+    width: 200px; /* Width and height of the outer circle */
+    height: 200px;
+    border-radius: 50%; /* Make it circular */
+    background: conic-gradient(grey 0deg 270deg, white 270deg 360deg); /* 3/4 grey, 1/4 white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 25px solid transparent; /* Thick border */
+  }
+  
+  /* Inner white circle */
+  .inner-circle {
+    width: 150px; /* Inner circle size */
+    height: 150px;
+    border-radius: 50%;
+    background-color: white; /* Background color for the inner circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Text showing the percentage */
+  .percentage-text {
+    font-size: 2rem; /* Text size */
+    font-weight: bold;
+    color: black;
+  }
+  

@@ -1,11 +1,9 @@
 $button-color: #ff3b3c;
 
 .homeContainer {
-  padding: 1rem 1rem 2rem 1rem;
   width: 430px;
   height: 85vh;
-  border: 1px solid white;
-  border-radius: 25px;
+  // border-radius: 25px;
   background-color: #fff;
   background: url("/public/home-bg.png");
   display: flex;
@@ -17,6 +15,7 @@ $button-color: #ff3b3c;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1.5rem;
   img {
     width: 160px;
     height: 40px;
@@ -59,4 +58,5 @@ $button-color: #ff3b3c;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1.5rem;
 }
