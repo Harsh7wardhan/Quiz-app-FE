@@ -2,8 +2,8 @@ import React from 'react'
 import styles from './Option.module.scss';
 import Checkbox from '../Checkbox/Checkbox';
 
-const Option = ({ optionText, isSelected, onOptionChange, key }) => {
-    console.log("issel", isSelected)
+const Option = ({ optionText, isSelected, onOptionChange, key , type }) => {
+    // console.log("issel", isSelected)
     return (
         <div className={`${isSelected ? styles.optionContainerActive : styles.optionContainer}`} onClick={onOptionChange} key={key}>
             <Checkbox isSelected={isSelected} id={`checkbox-${key}`} />

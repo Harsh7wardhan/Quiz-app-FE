@@ -14,10 +14,11 @@ const CircularProgressMeter = ({ percentage }) => {
         return () => clearTimeout(timer);
     }, [progress, percentage]);
 
-    console.log("pro",progress)
+    // console.log("pro",progress)
 
     return (
         <>
+            <img src="/gradient-semi-circle.png" className={styles.gradient}/>
             <div className={styles.progressMeterContainer}>
                 <svg className={styles.progressMeterCircle} width="220" height="220" viewBox="0 0 120 120">
                     <circle
@@ -47,7 +48,7 @@ const CircularProgressMeter = ({ percentage }) => {
                     <span className={styles.countText}>{percentage}%</span>
                 </div>
             </div>
-         
+
         </>
     );
 };
