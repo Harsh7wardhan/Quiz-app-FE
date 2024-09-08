@@ -1,4 +1,3 @@
-
 .questionContainer {
   width: 430px;
   height: 85vh;
@@ -9,6 +8,10 @@
   flex-direction: column;
   justify-content: space-between;
 
+  @media (max-width: 400px) {
+    height: 100vh; // Set height to 100vh for smaller devices
+  }
+
   img {
     width: 430px;
   }
@@ -18,24 +21,31 @@
     height: 85%;
     background-color: #fff;
     position: relative;
+
+    .questionImage {
+      height: 150px;
+      width: 200px;
+      object-fit: contain;
+      align-self: center;
+    }
   }
 
-  .questionBody{
+  .questionBody {
     padding: 0rem 1rem 1rem 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     margin-top: -1.5rem;
 
-    .question{
-        margin: 0;
-        font-family: "Nunito", sans-serif;
-        font-weight: 900;
-        font-size: 1.3rem;
-        line-height: 32px;
+    .question {
+      margin: 0;
+      font-family: "Nunito", sans-serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      line-height: 32px;
     }
 
-    .allOptions{
+    .allOptions {
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -44,5 +54,4 @@
       overflow-y: scroll;
     }
   }
-
 }

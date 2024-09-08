@@ -13,7 +13,7 @@ const Home = () => {
 
     const fetchllQuestions = async () => {
         try {
-            const resp = await axios.get(`https://quiz-app-be-7xrs.onrender.com/api/questions`);
+            const resp = await axios.get(`http://localhost:4002/api/questions`);
             console.log("resp->", resp?.data)
             if (resp?.data?.status === "success") {
                 dispatch(setQuestions(resp?.data?.data));

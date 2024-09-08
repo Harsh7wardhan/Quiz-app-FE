@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './Question.module.scss'
 import CircularProgressBar from '../../components/CircularBar/CircularBar';
 import Option from '../../components/Option/Option';
@@ -6,31 +6,38 @@ import Button from '../../components/Button/Button';
 import Arrow from '/arrow.svg'
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { setResult, updateAnswer } from '../../store/reducers/questionSlice';
+import { setResult, updateAnswer, setQuestionTime, setQuizTime } from '../../store/reducers/questionSlice';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Question = () => {
   const questions = useSelector((state) => state.questions.questions);
-  const answers = useSelector((state) => state.questions.answers)
+  const answers = useSelector((state) => state.questions.answers);
+  const questionTime = useSelector((state) => state.questions.questionTime)
+  const quizTime = useSelector((state) => state.questions.quizTime)
   const navigate = useNavigate();
   const dispatch = useDispatch()
   const { id } = useParams();
   const questionId = parseInt(id, 10);
+  const [startTime, setStartTime] = useState(null); // State to track when the user lands on the question
 
-  console.log("questions", id, questionId)
-
-  const answered = 1;
-  const total = 4;
-  const percentage = (answered / total) * 100;
+  console.log("quizTime", quizTime, questionTime)
 
   const question = questions[id - 1];
 
   const [selectedOptions, setSelectedOptions] = useState({});
 
-  console.log("current ques", selectedOptions)
+  console.log("current ques", question)
 
   const isMultipleChoice = question.type === 'multiple-choice';
+
+
+  useEffect(() => {
+    // Set start time when the user lands on the question
+    // setStartTime(Date.now());
+    dispatch(setQuestionTime(Date.now()))
+  }, [questionId]);
+
 
   const handleOptionChange = (index) => {
     setSelectedOptions((prevSelected) => {
@@ -95,15 +102,24 @@ const Question = () => {
     try {
       const selectedAnswerIndices = selectedOptions[id] || [];
       const selectedAnswers = selectedAnswerIndices.map(index => question.options[index]); // Map indices to option texts
+      const endTime = Date.now();
+      const timeTaken = endTime - questionTime;
+
+
       console.log("asnwerss andar-->", selectedAnswerIndices, selectedAnswers)
 
       if (questionId === questions.length) {
+        dispatch(updateAnswer({
+          questionId,
+          answer: selectedOptions[questionId]?.map(index => question.options[index]) || [],
+        }));
         await handleSubmit(); // Call handleSubmit when it's the last question
       } else {
         const url = 'https://quiz-app-be-7xrs.onrender.com/api/submit-answer';
         const data = {
           "id": id.toString(),
           "answer": selectedAnswers,
+          "timeTaken": timeTaken
         };
         const res = await axios.post(url, data);
         if (res?.data?.status == 200) {
@@ -125,7 +141,8 @@ const Question = () => {
         <CircularProgressBar activeQuestion={id} totalQuestions={questions?.length} percentage={(id / questions?.length) * 100} />
         <div className={styles.questionBody}>
           <p className={styles.question}>{question?.question}</p>
-          <div className={styles.allOptions}>
+          {question?.image && <img src={question.image} className={styles.questionImage} />}
+          <div className={styles.allOptions} style={question?.image ? {height : "27vh"} : {}}>
             {question?.options?.map((optionText, index) => (
               <Option
                 key={index}
@@ -141,7 +158,7 @@ const Question = () => {
               disabled={isButtonDisabled}
               text={questionId === questions.length ? "Submit" : "Next"}
               icon={Arrow}
-              buttonConfig={{ 'width': '80%', position: "absolute", bottom: "3%" }}
+              buttonConfig={{ 'width': '80%', position: "absolute", bottom: "2.5%" }}
               onClick={() => handleButtonClick(questionId)}
             />
           </div>

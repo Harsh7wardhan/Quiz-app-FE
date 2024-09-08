@@ -14,7 +14,7 @@ const CircularProgressMeter = ({ percentage }) => {
         return () => clearTimeout(timer);
     }, [progress, percentage]);
 
-    // console.log("pro",progress)
+    console.log("pro",(progress / 100) * 360)
 
     return (
         <>
@@ -41,7 +41,7 @@ const CircularProgressMeter = ({ percentage }) => {
                         className={styles.meterTriangle}
                         points="60,15 55,25 65,25"
                         fill="black"
-                        transform={`rotate(${(progress / 100) * 360}, 60, 60)`}
+                        transform={`rotate(${((progress / 100) * 360) + 55}, 60, 60)`}
                     />
                 </svg>
                 <div className={styles.innerCircle}>
