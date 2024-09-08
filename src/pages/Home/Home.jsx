@@ -16,15 +16,13 @@ const Home = () => {
             const resp = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/questions`);
             if (resp?.data?.status === "success") {
                 dispatch(setQuestions(resp?.data?.data));
+                navigate(`/question/1`)
             }
         } catch (e) {
             console.error(e)
         }
     }
-    useEffect(() => {
-        fetchllQuestions();
-    }, [])
-
+   
     return (
         <div className={styles.homeContainer}>
             <div className={styles.businessLogo}>
@@ -38,7 +36,7 @@ const Home = () => {
             </div>
 
             <div className={styles.button}>
-                <Button text={'Start'} buttonConfig={{ 'width': '50%' }} onClick={() => navigate(`/question/1`)} />
+                <Button text={'Start'} buttonConfig={{ 'width': '50%' }} onClick={fetchllQuestions} />
             </div>
         </div>
     )
