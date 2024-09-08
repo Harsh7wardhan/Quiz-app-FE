@@ -45,7 +45,7 @@ const CircularProgressMeter = ({ percentage }) => {
                     />
                 </svg>
                 <div className={styles.innerCircle}>
-                    <span className={styles.countText}>{percentage}%</span>
+                    <span className={styles.countText}>{Math.ceil(percentage)}%</span>
                 </div>
             </div>
 

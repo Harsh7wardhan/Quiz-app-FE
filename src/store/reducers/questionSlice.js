@@ -1,10 +1,9 @@
-// src/features/questionsSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     questions: [],
-    answers: {}
-
+    answers: {},
+    result: {}
 };
 
 const questionsSlice = createSlice({
@@ -18,6 +17,9 @@ const questionsSlice = createSlice({
             const { questionId, answer } = action.payload;
             state.answers[questionId] = answer;
         },
+        setResult: (state, action) => {
+            state.result = action.payload;
+        },
         resetState: (state) => {
             Object.keys(initialState).forEach((key) => {
                 state[key] = initialState[key];
@@ -26,7 +28,7 @@ const questionsSlice = createSlice({
     },
 });
 
-export const { setQuestions, updateAnswer , resetState } = questionsSlice.actions;
+export const { setQuestions, updateAnswer, resetState, setResult } = questionsSlice.actions;
 
 export const selectQuestions = (state) => state.questions.questions;
 
