@@ -19,8 +19,9 @@ const Question = () => {
   const questionId = parseInt(id, 10);
   const questions = useSelector((state) => state.questions.questions);
   const answers = useSelector((state) => state.questions.answers);
-  const questionTime = useSelector((state) => state.questions.questionTime)
+  const questionTime = useSelector((state) => state.questions.questionTime); // to calculate time taken by user to answer the question
 
+  /* transform redux state to resemble our selectedOptions object to persist data */
   const transformedAnswers = Object.keys(answers).reduce((acc, questionId) => {
     const answersList = answers[questionId];
     const question = questions.find(q => q.id === questionId);
@@ -71,6 +72,7 @@ const Question = () => {
     });
   };
 
+  /* submit quiz on last step */
   const handleSubmit = async () => {
     try {
       const url = `${import.meta.env.VITE_API_BASE_URL}/api/result`;
@@ -85,14 +87,13 @@ const Question = () => {
     }
   };
 
+  /* save user's answer and move to next question */
   const handleNextClick = () => {
     const nextQuestionId = questionId + 1;
-
     dispatch(updateAnswer({
       questionId,
       answer: selectedOptions[questionId]?.map(index => question.options[index]) || [],
     }));
-
     if (nextQuestionId <= questions.length) {
       navigate(`/question/${nextQuestionId}`);
     } else {
@@ -107,14 +108,16 @@ const Question = () => {
       const endTime = Date.now();
       const timeTaken = endTime - questionTime;
 
+      /* submit all answers on last step */
       if (questionId === questions.length) {
         dispatch(updateAnswer({
           questionId,
           answer: selectedOptions[questionId]?.map(index => question.options[index]) || [],
         }));
         await handleSubmit();
-
-      } else {
+      }
+      /* submit individual answers on each step */
+      else {
         const url = `${import.meta.env.VITE_API_BASE_URL}/api/submit-answer`;
         const data = {
           "id": id.toString(),

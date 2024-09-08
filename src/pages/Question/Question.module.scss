@@ -15,6 +15,9 @@
     &:hover {
       transform: scale(1.05);
     }
+    @media (max-width: 450px) {
+      display: none;
+    }
   }
   .questionContainer {
     width: 430px;
