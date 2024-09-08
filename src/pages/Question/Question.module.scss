@@ -1,57 +1,76 @@
-.questionContainer {
-  width: 430px;
-  height: 85vh;
-  border: 1px solid white;
-  background-color: #fff;
-  background: url("/public/purple-bg.png");
+.questionParent {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  gap: 1rem;
 
-  @media (max-width: 400px) {
-    height: 100vh; // Set height to 100vh for smaller devices
-  }
-
-  img {
-    width: 430px;
-  }
-
-  .questionsList {
-    border-radius: 25px 25px 0px 0px;
-    height: 85%;
+  .crossBtn {
     background-color: #fff;
-    position: relative;
-
-    .questionImage {
-      height: 150px;
-      width: 200px;
-      object-fit: contain;
-      align-self: center;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
     }
   }
-
-  .questionBody {
-    padding: 0rem 1rem 1rem 1rem;
+  .questionContainer {
+    width: 430px;
+    height: 85vh;
+    border: 1px solid white;
+    background-color: #fff;
+    background: url("/public/purple-bg.png");
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-top: -1.5rem;
+    justify-content: space-between;
 
-    .question {
-      margin: 0;
-      font-family: "Nunito", sans-serif;
-      font-weight: 900;
-      font-size: 1.3rem;
-      line-height: 32px;
+    @media (max-width: 400px) {
+      height: 100vh;
     }
 
-    .allOptions {
+    img {
+      width: 430px;
+    }
+
+    .questionsList {
+      border-radius: 25px 25px 0px 0px;
+      height: 85%;
+      background-color: #fff;
+      position: relative;
+
+      .questionImage {
+        height: 150px;
+        width: 200px;
+        object-fit: contain;
+        align-self: center;
+      }
+    }
+
+    .questionBody {
+      padding: 0rem 1rem 1rem 1rem;
       display: flex;
-      align-items: center;
       flex-direction: column;
       gap: 0.5rem;
-      max-height: 43vh;
-      overflow-y: scroll;
+      margin-top: -1.5rem;
+
+      .question {
+        margin: 0;
+        font-family: "Nunito", sans-serif;
+        font-weight: 900;
+        font-size: 1.3rem;
+        line-height: 32px;
+      }
+
+      .allOptions {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 0.5rem;
+        max-height: 43vh;
+        overflow-y: scroll;
+      }
     }
   }
 }

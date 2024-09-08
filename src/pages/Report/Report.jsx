@@ -11,7 +11,6 @@ const Report = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const resultData = useSelector((state) => state.questions.result);
-  console.log("object",resultData)
 
   const restartQuiz = () => {
     dispatch(resetState());
@@ -19,9 +18,9 @@ const Report = () => {
   }
 
   return (
-    <div className={containerStyles.questionContainer}>
+    <div className={styles.reportParent}>
       <div>
-        <img src='/decoration-top.svg' />
+        <img src='/decoration-top.svg' width={"430px"}/>
       </div>
       <div className={styles.reportContainer}>
         <p className={styles.resultText}>Your Result</p>

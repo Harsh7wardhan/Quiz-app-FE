@@ -14,7 +14,6 @@ const CircularProgressMeter = ({ percentage }) => {
         return () => clearTimeout(timer);
     }, [progress, percentage]);
 
-    console.log("pro",(progress / 100) * 360)
 
     return (
         <>
