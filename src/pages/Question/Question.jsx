@@ -61,7 +61,7 @@ const Question = () => {
 
   const handleSubmit = async () => {
     try {
-      const url = `https://quiz-app-be-7xrs.onrender.com/api/result`;
+      const url = `${import.meta.env.VITE_API_BASE_URL}/api/result`;
       const resp = await axios.post(url, answers);
       console.log("resply", resp);
       if (resp?.data?.status === 200) {
@@ -115,7 +115,7 @@ const Question = () => {
         }));
         await handleSubmit(); // Call handleSubmit when it's the last question
       } else {
-        const url = 'https://quiz-app-be-7xrs.onrender.com/api/submit-answer';
+        const url = `${import.meta.env.VITE_API_BASE_URL}/api/submit-answer`;
         const data = {
           "id": id.toString(),
           "answer": selectedAnswers,

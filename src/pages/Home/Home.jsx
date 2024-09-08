@@ -13,7 +13,7 @@ const Home = () => {
 
     const fetchllQuestions = async () => {
         try {
-            const resp = await axios.get(`http://localhost:4002/api/questions`);
+            const resp = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/questions`);
             console.log("resp->", resp?.data)
             if (resp?.data?.status === "success") {
                 dispatch(setQuestions(resp?.data?.data));
