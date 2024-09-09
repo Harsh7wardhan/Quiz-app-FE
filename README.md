@@ -2,7 +2,7 @@
 
 **2. Setup env file** -->
 - create .env file at root of the project and this
-  VITE_API_BASE_URL=https://quiz-app-be-7xrs.onrender.com
+- VITE_API_BASE_URL=https://quiz-app-be-7xrs.onrender.com
 - 
 **2. Install Dependencies** -->
 - Run the following command to install all necessary dependencies:
