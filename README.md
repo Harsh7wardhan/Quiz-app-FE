@@ -1,6 +1,6 @@
 ## Running the Quiz App Fronted
 
-**2. Setup env file** -->
+**1. Setup env file** -->
 - create .env file at root of the project and this
 - VITE_API_BASE_URL=https://quiz-app-be-7xrs.onrender.com
 - 
